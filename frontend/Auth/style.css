@@ -1,0 +1,148 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: url(background.jpg);
+    background-position: center;
+    filter: saturate(190%);
+    filter: contrast(100%);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 4s ease-out forwards;
+}
+
+/* Define the Zoom Animation */
+@keyframes zoomIn {
+    0% {
+        background-size: 100%;
+    }
+    100% {
+        background-size: 107%; /* Adjust this value for more/less zoom */
+    }
+}
+
+.container{
+    border: 2px solid rgb(255, 255, 255);
+    height: 700px;
+    width: 500px;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    animation: up 4s ease-in-out forwards;
+    transform: translateY(10px);
+}
+
+@keyframes up{
+    0%{
+        transform: translateY(10px);
+        
+    }
+    100% {
+        transform: translateY(0);
+
+    }
+}
+.title{
+    margin-bottom:30px;
+    height: 100px;
+    
+}
+.title h1{
+    text-align: center;
+    font-size: 50px;
+}
+.field{
+    display: grid;
+    width: auto;
+    gap: 10px;
+}
+label{
+    font-weight: bold;
+}
+input{
+    height: 40px;
+    border-radius:5px ;
+    padding:0 4px;
+}
+
+select{
+    height: 40px;
+}
+button{
+    height: 40px;
+    background:rgb(255, 166, 0);
+    border:none;
+    border-radius:5px;
+    transition: 0.3s;
+    width: 100%;
+
+}
+button:hover{
+    background:rgb(255, 184, 51);
+
+}
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    
+
+    animation: loader-exit 1s forwards;
+    animation-delay: 2s; 
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-logo {
+    font-family: 'Cinzel', serif;
+    color: #000000;
+    font-size: 5rem;
+    letter-spacing: 12px;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+.loader-line {
+    height: 3px;
+    width: 0;
+    background-color: #c5a059;
+    margin: 15px auto 0;
+    animation: growLine 1.5s 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes growLine {
+    to { width: 100%; }
+}
+
+@keyframes loader-exit {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none; 
+    }
+}
